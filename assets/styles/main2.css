@@ -1,0 +1,49 @@
+
+
+.img_produto{
+    width: 100px;
+}
+
+.img_produto_variavel{
+    max-width: 30px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.lista_variavel{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.preco_puro{
+    font-size: 12px;
+    text-decoration: line-through;
+    color: grey;
+}
+
+.produto_nome{
+    display: flex;
+    font-size: 15px;
+    align-self: center;
+    justify-self: center;
+    margin: 15px 0px;
+}
+
+.preco_desconto, .preco_normal{
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+
+.btn_comprar{
+    padding: 15px;
+    border: 1px solid black;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.btn_comprar:hover{
+    transition: 0.3s ease-in-out;
+    background-color: rgb(151, 99, 199);
+}

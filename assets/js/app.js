@@ -4,6 +4,9 @@ const url_produtos_por_id = "https://desafio.xlow.com.br/search/"
 const lista_produtos = document.querySelector(".lista_produtos");
 const quantidade_produtos = document.querySelector("#quantidade_produtos");
 
+
+
+
 //Fazendo GET para obter a quantidade total de produtos
 async function pegarQuantidadeProdutos(){
     try{
@@ -45,10 +48,12 @@ async function pegarProdutosEtransformar(){
 
         //Verificação de variaveis do produto
         if(produto.items.length > 1){
-            produto.items.forEach(v =>{
+            produto.items.forEach((v, index) =>{
+                if(index === 0 || index === 7 || index > 7) return
                 let img = document.createElement('img')
                 img.classList.add('img_produto_variavel')
                 img.src = v.images[0].imageUrl
+                img.onclick = (e) => trocarImagem(e);
                 lista_variavel.appendChild(img)
             })
         }
@@ -56,23 +61,21 @@ async function pegarProdutosEtransformar(){
 
         //Verificação do Desconto
         if(produto.items[0].sellers[0].commertialOffer.Price < produto.items[0].sellers[0].commertialOffer.PriceWithoutDiscount){
-            console.log("ta em promocacao")
             preco_com_desconto.classList.add("preco_desconto")
             preco_com_desconto.innerText = "R$" + produto.items[0].sellers[0].commertialOffer.Price
 
             preco_sem_desconto.classList.add("preco_puro")    
             preco_sem_desconto.innerText = "R$" + produto.items[0].sellers[0].commertialOffer.PriceWithoutDiscount
         } else{
-            console.log("N TA EM PROMOCAO ")
             preco_sem_desconto.classList.add("preco_normal")
             preco_sem_desconto.innerText = "R$" + produto.items[0].sellers[0].commertialOffer.Price
-            console.log(produto.items[0].sellers[0].commertialOffer.Price)
         }
 
         //Adicionando valores as propriedades do produto
         img_produto.src = produto.items[0].images[0].imageUrl
         nome_produto.innerText = produto.productName || "Nome não disponivel";
         btn.innerText = "COMPRAR"
+
 
         //Colocando Classes nos elementos
         img_produto.classList.add("img_produto")
@@ -83,7 +86,7 @@ async function pegarProdutosEtransformar(){
         li_produto.appendChild(img_produto)
         li_produto.appendChild(nome_produto)
         li_produto.appendChild(lista_variavel)
-        if(preco_com_desconto === null){
+        if(!(preco_com_desconto === null)){
             li_produto.appendChild(preco_sem_desconto)
             li_produto.appendChild(preco_com_desconto)
         } else{
@@ -96,9 +99,43 @@ async function pegarProdutosEtransformar(){
         lista_produtos.appendChild(li_produto);
         })
     });
-    
+
+
+//Função para a troca da imagem principal pela variável dela
+function trocarImagem(e) {
+    let imgVariavel = e.target;
+      
+    let listItem = imgVariavel.closest('li')
+    let imgProduto = listItem.querySelector('.img_produto, .img_produto2');
+        
+    if (imgProduto.src && imgVariavel.src) {
+            let tempSrc = imgProduto.src;
+            imgProduto.src = imgVariavel.src;
+            imgVariavel.src = tempSrc;
+        } 
+    }
+
 }
 
+//Mudando estilo de acordo com a apresentação
+function mudarApresentacao(){
+        let element1 = document.querySelector(".lista_produtos");
+        let element2 = document.querySelector(".lista_produtos2");
 
-pegarQuantidadeProdutos();
-pegarProdutosEtransformar();
+        if (element1) {
+            element1.classList.remove('lista_produtos');
+            element1.classList.add('lista_produtos2');
+        }
+        if (element2) {
+            element2.classList.remove('lista_produtos2');
+            element2.classList.add('lista_produtos');
+        }
+}
+
+//Funcão main da aplicação
+function main(){
+    pegarQuantidadeProdutos();
+    pegarProdutosEtransformar();
+}
+
+main();

@@ -1,0 +1,40 @@
+@media (min-width: 1024px) {
+    .lista_produtos{
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+    .lista_produtos2{
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .img_produto{
+        width: 180px;
+        margin-top: 10px;
+    }
+    .produto_nome{
+        font-size: 18px;
+    }
+    .img_produto_variavel{
+        max-width: 45px;
+       
+    }
+    .preco_puro{
+        font-size: 15px;
+        text-decoration: line-through;
+        color: grey;
+    }
+    
+    
+    .preco_desconto, .preco_normal{
+        font-size: 25px;
+        margin-bottom: 15px;
+    } 
+}
+
+@media (min-width: 1500px){
+    .lista_produtos{
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .lista_produtos2{
+        grid-template-columns: repeat(5, 1fr);
+    }
+}

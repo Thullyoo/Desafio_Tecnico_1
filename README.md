@@ -1,4 +1,4 @@
-# Desafio Técnico 1 para Empresa
+# Desafio Técnico 1 
 
 ## Descrição
 Este projeto é uma representação de uma vitrine online com diversas funcionalidades interativas. Ele foi desenvolvido utilizando HTML, CSS e JavaScript para demonstrar habilidades técnicas e criatividade no desenvolvimento web.

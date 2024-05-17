@@ -5,6 +5,10 @@ Este projeto é uma representação de uma vitrine online com diversas funcional
 
 ## Como Utilizar
 
+- Acesse por : https://thullyoo.github.io/Desafio_Tecnico_1/
+
+## Ou acesse manualmente:
+
 ### Pré-requisitos
 - **Visual Studio Code**: Certifique-se de ter o Visual Studio Code instalado em seu sistema.
 - **Live Server Extension**: Instale a extensão "Live Server" no Visual Studio Code para facilitar a execução do projeto.

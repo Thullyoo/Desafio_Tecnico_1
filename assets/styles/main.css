@@ -26,7 +26,6 @@
 .lista_produtos{
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    row-gap: 50px;
     padding: 0px;
 }
 
@@ -35,6 +34,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    margin-bottom: 30px;
 }
 
 .lista_produtos2{
